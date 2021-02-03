@@ -45,3 +45,9 @@ Add two scripts on package.json:
   }
 }
 ```
+
+## [The name](https://en.wikipedia.org/wiki/Ptah)
+
+Ptah /ˈtɑː/[1] (Ancient Egyptian: ptḥ, reconstructed [piˈtaħ]; Ancient Greek: Φθά; Coptic: ⲡⲧⲁϩ)[2] is an ancient Egyptian deity, the god of craftsmen and architects.
+
+...and it's also is **path**, misspelled 🙃
