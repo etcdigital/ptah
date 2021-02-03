@@ -2,9 +2,9 @@
 const rollup = require("rollup");
 const fs = require("fs");
 const path = require("path");
-const { CJS, ESM, UMD } = require("../lib/formats");
-const { external } = require("../lib/externals");
-const { plugins } = require("../lib/plugins");
+const { terser } = require("rollup-plugin-terser");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const typescript = require("rollup-plugin-typescript2");
 
 const configPath = path.resolve("package.json");
 let config = {};
@@ -38,22 +38,51 @@ if (fs.existsSync(configPath)) {
 const configuration = {
 	input: config.source,
 	output: [
-		ESM(config.main),
-		CJS(config.main),
-		UMD(config.unpkg, config["umd:name"] || config.name),
+		{
+			format: "esm",
+			file: config.module,
+			sourcemap: false,
+			plugins: [terser()],
+			exports: "named",
+		},
+		{
+			format: "cjs",
+			file: config.main,
+			sourcemap: false,
+			plugins: [terser()],
+			exports: "named",
+		},
+		{
+			name: config["umd:name"] || config.name,
+			format: "umd",
+			file: config.unpkg,
+			sourcemap: false,
+			plugins: [terser()],
+			exports: "named",
+		},
 	],
-	external: external(
-		config.dependencies || {},
-		config.devDependencies || {},
-		config.peerDependencies || {},
-	),
-	plugins,
+	external: [
+		...require("module").builtinModules,
+		...Object.keys(config.dependencies || {}),
+		...Object.keys(config.devDependencies || {}),
+		...Object.keys(config.peerDependencies || {}),
+		"react",
+	],
+	plugins: [
+		nodeResolve(),
+		typescript({
+			useTsconfigDeclarationDir: true,
+			tsconfig: "tsconfig.json",
+		}),
+	],
 };
 
 rollup
 	.rollup(configuration)
 	.then((bundle) => {
-		bundle.write(configuration.targets[0]);
+		configuration.output.forEach((output) => {
+			bundle.write(output);
+		});
 	})
 	.catch((err) => {
 		console.log(err);
