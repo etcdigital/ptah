@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const rollup = require("rollup");
+const path = require("path");
 const { CJS, ESM, UMD } = require("../lib/formats");
 const { external } = require("../lib/externals");
 const { plugins } = require("../lib/plugins");
