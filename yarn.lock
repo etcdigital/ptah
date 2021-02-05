@@ -1161,13 +1161,14 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-preset-ptah@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/babel-preset-ptah/-/babel-preset-ptah-1.0.2.tgz#738d6fd0fd90a0c9e8f83267f6bd0cbcd2a654d5"
-  integrity sha512-mjHuEVGspLMBnCrdfRSP0RSFFf8pmtFjc80qIH8+FwXsnGm5MBCAa2s9JBhCvQQWEdprfZgBqzMdyodsdDkrtA==
+babel-preset-ptah@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-ptah/-/babel-preset-ptah-1.1.0.tgz#490d45a9e44478fb9e82c6627cdc2b24e81fa84c"
+  integrity sha512-6qUDhWwuU1mw9DyehgOInvk/bZmywjHqxGOUqJJU3Zntoq2aQ+LRokDpyoeiG23VbTu1P0aFVPLk4YdED0x02w==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
+    "@babel/plugin-proposal-nullish-coalescing-operator" "^7.12.13"
     "@babel/plugin-proposal-object-rest-spread" "^7.12.1"
     "@babel/plugin-transform-modules-commonjs" "^7.12.1"
     "@babel/plugin-transform-parameters" "^7.12.1"
@@ -4136,10 +4137,10 @@ rollup-plugin-typescript2@^0.29.0:
     resolve "1.17.0"
     tslib "2.0.1"
 
-rollup@^2.38.4:
-  version "2.38.4"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.4.tgz#1b84ea8728c73b1a00a6a6e9c630ec8c3fe48cea"
-  integrity sha512-B0LcJhjiwKkTl79aGVF/u5KdzsH8IylVfV56Ut6c9ouWLJcUK17T83aZBetNYSnZtXf2OHD4+2PbmRW+Fp5ulg==
+rollup@^2.38.5:
+  version "2.38.5"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-2.38.5.tgz#be41ad4fe0c103a8794377afceb5f22b8f603d6a"
+  integrity sha512-VoWt8DysFGDVRGWuHTqZzT02J0ASgjVq/hPs9QcBOGMd7B+jfTr/iqMVEyOi901rE3xq+Deq66GzIT1yt7sGwQ==
   optionalDependencies:
     fsevents "~2.3.1"
 
