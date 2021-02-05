@@ -21,7 +21,7 @@
 		"rollup-plugin-typescript2": "^0.29.0"
 	},
 	"devDependencies": {
-		"@semantic-release/npm": "^7.0.10"
+		"@semantic-release/npm": "7.0.10"
 	},
 	"publishConfig": {
 		"access": "public"
