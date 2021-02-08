@@ -9,9 +9,9 @@ const typescript = require("rollup-plugin-typescript2");
 let config = {};
 
 const cwarn = (message) => {
-	console.log(err);
+	console.log(message);
 	process.exitCode = 1;
-}
+};
 
 const configPath = path.resolve("package.json");
 if (fs.existsSync(configPath)) {
