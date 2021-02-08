@@ -1161,10 +1161,10 @@ babel-plugin-dynamic-import-node@^2.3.3:
   dependencies:
     object.assign "^4.1.0"
 
-babel-preset-ptah@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/babel-preset-ptah/-/babel-preset-ptah-1.2.0.tgz#f2bb044086c4bf7a744305810e809d9d1d9a46c0"
-  integrity sha512-eSLozEyCTODudymVirnUtypOx0o2HR5XiTLsDchRycn5FPCrmcneHbhqlUeqZytUsh5QWKRbsPwzHMyJK8usnQ==
+babel-preset-ptah@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/babel-preset-ptah/-/babel-preset-ptah-1.3.0.tgz#f38dae068a79267f917cfd7cdb95243028dba3c4"
+  integrity sha512-+WZsUTKGaB3zbwmjlET3JnuxXMSG30LMEfTFFBM1YnVj2ISuZdUsZO3Nj0jG074FCmztjGbfYVZMWxX4xPRYOg==
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -1175,6 +1175,7 @@ babel-preset-ptah@^1.2.0:
     "@babel/plugin-transform-parameters" "^7.12.1"
     "@babel/plugin-transform-regenerator" "^7.12.1"
     "@babel/plugin-transform-runtime" "^7.12.10"
+    "@babel/plugin-transform-template-literals" "^7.12.13"
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
