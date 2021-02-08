@@ -31,8 +31,11 @@ if (fs.existsSync(configPath)) {
 	if (!config.source) {
 		throw "Add source session on package.json";
 	}
-} else {
-	throw "Please, add .build.js configuration file";
+}
+
+const tsconfigPath = path.resolve("tsconfig.json");
+if (fs.existsSync(tsconfigPath)) {
+	throw "Please, add tsconfig.json";
 }
 
 const configuration = {
