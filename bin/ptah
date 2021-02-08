@@ -6,36 +6,41 @@ const { terser } = require("rollup-plugin-terser");
 const { nodeResolve } = require("@rollup/plugin-node-resolve");
 const typescript = require("rollup-plugin-typescript2");
 
-const configPath = path.resolve("package.json");
 let config = {};
 
+const cwarn = (message) => {
+	console.log(err);
+	process.exitCode = 1;
+}
+
+const configPath = path.resolve("package.json");
 if (fs.existsSync(configPath)) {
 	const userConfigModule = require(configPath);
 	config = userConfigModule.default || userConfigModule;
 
 	if (!config.name) {
-		throw "Package.json should be a name";
+		cwarn("Package.json should be a name");
 	}
 	if (!config.exports) {
-		throw "Add exports session on package.json";
+		cwarn("Add exports session on package.json");
 	}
 	if (!config.main) {
-		throw "Add main session on package.json";
+		cwarn("Add main session on package.json");
 	}
 	if (!config.unpkg) {
-		throw "Add unpkg session on package.json";
+		cwarn("Add unpkg session on package.json");
 	}
 	if (!config.module) {
-		throw "Add module session on package.json";
+		cwarn("Add module session on package.json");
 	}
 	if (!config.source) {
-		throw "Add source session on package.json";
+		cwarn("Add source session on package.json");
 	}
 }
 
 const tsconfigPath = path.resolve("tsconfig.json");
-if (fs.existsSync(tsconfigPath)) {
-	throw "Please, add tsconfig.json";
+if (!fs.existsSync(tsconfigPath)) {
+	cwarn("Please, add tsconfig.json");
 }
 
 const configuration = {
@@ -88,6 +93,6 @@ rollup
 		});
 	})
 	.catch((err) => {
-		console.log(err);
+		console.error(err);
 		process.exitCode = 1;
 	});
