@@ -1,80 +1,8 @@
 #!/usr/bin/env node
 const rollup = require("rollup");
-const { terser } = require("rollup-plugin-terser");
-const { nodeResolve } = require("@rollup/plugin-node-resolve");
-const typescript = require("rollup-plugin-typescript2");
-const { babel } = require("@rollup/plugin-babel");
-const svgr = require("@svgr/rollup").default;
-const url = require("@rollup/plugin-url");
-const babelConfig = require("../lib/babel");
-const typescriptConfig = require("../lib/typescript");
+const { getConfiguration } = require("../lib/config");
 
-let config = {};
-const fs = require("fs");
-const path = require("path");
-
-const cwarn = (message) => {
-	console.log(message);
-	process.exitCode = 1;
-};
-
-const configPath = path.resolve("package.json");
-if (fs.existsSync(configPath)) {
-	const userConfigModule = require(configPath);
-	config = userConfigModule.default || userConfigModule;
-
-	if (!config.exports) {
-		cwarn("Add exports session on package.json");
-	}
-	if (!config.main) {
-		cwarn("Add main session on package.json");
-	}
-	if (!config.module) {
-		cwarn("Add module session on package.json");
-	}
-	if (!config.source) {
-		cwarn("Add source session on package.json");
-	}
-}
-
-const tsconfigPath = path.resolve("tsconfig.json");
-if (!fs.existsSync(tsconfigPath)) {
-	cwarn("Please, add tsconfig.json");
-}
-
-const configuration = {
-	input: config.source,
-	output: [
-		{
-			format: "esm",
-			file: config.module,
-			sourcemap: false,
-			plugins: [terser()],
-			exports: "named",
-		},
-		{
-			format: "cjs",
-			file: config.main,
-			sourcemap: false,
-			plugins: [terser()],
-			exports: "named",
-		},
-	],
-	external: [
-		...require("module").builtinModules,
-		...Object.keys(config.dependencies || {}),
-		...Object.keys(config.devDependencies || {}),
-		...Object.keys(config.peerDependencies || {}),
-		"react",
-	],
-	plugins: [
-		nodeResolve(),
-		typescript(typescriptConfig),
-		url(),
-		svgr(),
-		babel(babelConfig),
-	],
-};
+const configuration = getConfiguration();
 
 rollup
 	.rollup(configuration)
