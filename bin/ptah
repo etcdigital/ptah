@@ -23,17 +23,11 @@ if (fs.existsSync(configPath)) {
 	const userConfigModule = require(configPath);
 	config = userConfigModule.default || userConfigModule;
 
-	if (!config.name) {
-		cwarn("Package.json should be a name");
-	}
 	if (!config.exports) {
 		cwarn("Add exports session on package.json");
 	}
 	if (!config.main) {
 		cwarn("Add main session on package.json");
-	}
-	if (!config.unpkg) {
-		cwarn("Add unpkg session on package.json");
 	}
 	if (!config.module) {
 		cwarn("Add module session on package.json");
@@ -61,14 +55,6 @@ const configuration = {
 		{
 			format: "cjs",
 			file: config.main,
-			sourcemap: false,
-			plugins: [terser()],
-			exports: "named",
-		},
-		{
-			name: config["umd:name"] || config.name,
-			format: "umd",
-			file: config.unpkg,
 			sourcemap: false,
 			plugins: [terser()],
 			exports: "named",

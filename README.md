@@ -18,7 +18,6 @@ Install the package: `npm i ptah -D` or `yarn add ptah -D`
     "./package.json": "./package.json"
   },
   "main": "dist/index.js",
-  "unpkg": "dist/index.min.js",
   "module": "dist/index.module.js",
   "source": "src/index.ts",
   "types": "./dist/@types/index.d.ts",
