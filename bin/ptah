@@ -1,14 +1,14 @@
 #!/usr/bin/env node
+require("../lib/required");
 const rollup = require("rollup");
 const { terser } = require("rollup-plugin-terser");
 const resolve = require("@rollup/plugin-node-resolve");
 const typescript = require("rollup-plugin-typescript2");
-import { babel } from "@rollup/plugin-babel";
+const { babel } = require("@rollup/plugin-babel");
 const svgr = require("@svgr/rollup").default;
 const url = require("@rollup/plugin-url");
-import babelConfig from "../lib/babel";
-import typescriptConfig from "../lib/typescript";
-import "../lib/required";
+const babelConfig = require("../lib/babel");
+const typescriptConfig = require("../lib/typescript");
 
 let config = {};
 
