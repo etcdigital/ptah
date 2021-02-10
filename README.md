@@ -41,9 +41,14 @@ Add two scripts on package.json:
 {
   "scripts": {
     "build": "ptah",
+    "dev": "ptah-dev"
   }
 }
 ```
+
+## Watch Mode
+
+Use `yarn dev` (aka. `ptah-dev`) to watch changes and build for every change.
 
 ## [The name](https://en.wikipedia.org/wiki/Ptah)
 
