@@ -2,7 +2,7 @@
 require("../lib/required");
 const rollup = require("rollup");
 const { terser } = require("rollup-plugin-terser");
-const resolve = require("@rollup/plugin-node-resolve");
+const nodeResolve = require("@rollup/plugin-node-resolve");
 const typescript = require("rollup-plugin-typescript2");
 const { babel } = require("@rollup/plugin-babel");
 const svgr = require("@svgr/rollup").default;
@@ -46,7 +46,7 @@ const configuration = {
 		"react",
 	],
 	plugins: [
-		resolve(),
+		nodeResolve(),
 		typescript(typescriptConfig),
 		url(),
 		svgr(),
