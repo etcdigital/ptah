@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+const rollup = require("rollup");
+const { getConfiguration } = require("../lib/config");
+
+const configuration = getConfiguration();
+
+const watcher = rollup.watch(configuration);
+watcher.on("event", (event) => {
+	console.log({ event });
+	if (event.code === "END") {
+		// rollup
+		// 	.rollup(configuration)
+		// 	.then((bundle) => {
+		// 		configuration.output.forEach((output) => {
+		// 			bundle.write(output);
+		// 		});
+		// 	})
+		// 	.catch((err) => {
+		// 		console.error(err);
+		// 		process.exitCode = 1;
+		// 	});
+	} else if (event.code === "ERROR") {
+		console.error(event.error);
+	}
+});

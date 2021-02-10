@@ -11,7 +11,8 @@
 		"url": "https://github.com/etcdigital/ptah"
 	},
 	"bin": {
-		"ptah": "./bin/ptah"
+		"ptah": "./bin/ptah",
+		"ptah-dev": "./bin/ptah-dev"
 	},
 	"files": [
 		"bin",
