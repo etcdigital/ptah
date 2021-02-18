@@ -42,7 +42,7 @@
 		"babel-plugin-inline-json-import": "^0.3.2",
 		"rollup": "^2.38.5",
 		"rollup-plugin-terser": "^7.0.2",
-		"rollup-plugin-typescript2": "^0.29.0"
+		"rollup-plugin-typescript2": "^0.30.0"
 	},
 	"devDependencies": {
 		"@semantic-release/npm": "7.0.10"
