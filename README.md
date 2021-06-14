@@ -22,8 +22,7 @@ Install the package: `npm i ptah -D` or `yarn add ptah -D`
   "source": "src/index.ts",
   "types": "./dist/@types/index.d.ts",
   "files": [
-    "dist",
-    "types"
+    "dist"
   ],
 }
 
